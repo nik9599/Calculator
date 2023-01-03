@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>calculator</title>
+  </head>
+
+  <body>
+    <input
+      type="text"
+      class="w-80 h-20 text-right"
+      id="output"
+      style="
+        margin-left: 600px;
+        border: solid 2px black;
+        width: 335px;
+        border-radius: 20px;
+        margin-top: 10px;
+      "
+    />
+
+    <table style="margin: auto">
+      <tr>
+        <td colspan="2">
+          <button
+            onclick="Clear()"
+            class="w-40 h-20 rounded-full bg-slate-500 text-xl text-orange-500 hover:bg-slate-300 hover:text-3xl"
+          >
+            C
+          </button>
+        </td>
+        <td>
+          <button
+            onclick="display('-')"
+            class="w-20 h-20 rounded-full bg-slate-500 text-xl text-lime-500 hover:bg-slate-300 hover:text-3xl"
+          >
+            -/+
+          </button>
+        </td>
+        <td>
+          <button
+            onclick="display('/')"
+            class="w-20 h-20 rounded-full bg-slate-500 text-xl text-lime-500 hover:bg-slate-300 hover:text-3xl"
+          >
+            /
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button
+            onclick="display('7')"
+            class="w-20 h-20 rounded-full bg-slate-500 text-xl hover:bg-slate-300 hover:text-3xl"
+          >
+            7
+          </button>
+        </td>
+        <td>
+          <button
+            onclick="display('8')"
+            class="w-20 h-20 rounded-full bg-slate-500 text-xl hover:bg-slate-300 hover:text-3xl"
+          >
+            8
+          </button>
+        </td>
+        <td>
+          <button
+            onclick="display('9')"
+            class="w-20 h-20 rounded-full bg-slate-500 text-xl hover:bg-slate-300 hover:text-3xl"
+          >
+            9
+          </button>
+        </td>
+        <td>
+          <button
+            onclick="display('*')"
+            class="w-20 h-20 rounded-full bg-slate-500 text-xl text-lime-500 hover:bg-slate-300 hover:text-3xl"
+          >
+            X
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button
+            onclick="display('4')"
+            class="w-20 h-20 rounded-full bg-slate-500 text-xl hover:bg-slate-300 hover:text-3xl"
+          >
+            4
+          </button>
+        </td>
+        <td>
+          <button
+            onclick="display('5')"
+            class="w-20 h-20 rounded-full bg-slate-500 text-xl hover:bg-slate-300 hover:text-3xl"
+          >
+            5
+          </button>
+        </td>
+        <td>
+          <button
+            onclick="display('6')"
+            class="w-20 h-20 rounded-full bg-slate-500 text-xl hover:bg-slate-300 hover:text-3xl"
+          >
+            6
+          </button>
+        </td>
+        <td>
+          <button
+            onclick="display('-')"
+            class="w-20 h-20 rounded-full bg-slate-500 text-xl text-lime-500 hover:bg-slate-300 hover:text-3xl"
+          >
+            -
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button
+            onclick="display('1')"
+            class="w-20 h-20 rounded-full bg-slate-500 text-xl hover:bg-slate-300 hover:text-3xl"
+          >
+            1
+          </button>
+        </td>
+        <td>
+          <button
+            onclick="display('2')"
+            class="w-20 h-20 rounded-full bg-slate-500 text-xl hover:bg-slate-300 hover:text-3xl"
+          >
+            2
+          </button>
+        </td>
+        <td>
+          <button
+            onclick="display('3')"
+            class="w-20 h-20 rounded-full bg-slate-500 text-xl hover:bg-slate-300 hover:text-3xl"
+          >
+            3
+          </button>
+        </td>
+        <td>
+          <button
+            onclick="display('+')"
+            class="w-20 h-20 rounded-full bg-slate-500 text-xl text-lime-500 hover:bg-slate-300 hover:text-3xl"
+          >
+            +
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button
+            onclick="display('.')"
+            class="w-20 h-20 rounded-full bg-slate-500 text-xl hover:bg-slate-300 hover:text-3xl"
+          >
+            .
+          </button>
+        </td>
+        <td colspan="2">
+          <button
+            onclick="display('0')"
+            class="w-40 h-20 rounded-full bg-slate-500 text-xl hover:bg-slate-300 hover:text-3xl"
+          >
+            0
+          </button>
+        </td>
+        <td>
+          <button
+            onclick="Calculate()"
+            class="w-20 h-20 rounded-full bg-lime-500 text-xl hover:bg-lime-300 hover:text-3xl"
+          >
+            =
+          </button>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      let outputScreen = document.getElementById("output");
+
+      function display(num) {
+        outputScreen.value += num;
+      }
+      function Calculate() {
+        try {
+          outputScreen.value = eval(outputScreen.value);
+        } catch (err) {
+          alert("error");
+        }
+      }
+      function Clear() {
+        outputScreen.value = "";
+      }
+    </script>
+  </body>
+</html>
